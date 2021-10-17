@@ -7,6 +7,10 @@ class StringCalculator {
 	public int add(String inputString) throws Exception {
 		String[] arrOfNumber;
 		int result = 0;
+		if (inputString.endsWith("\\n")) {
+			System.out.println("Invalid Input, No character after Delimiter");
+
+		}
 		if (inputString.isEmpty()) {
 			return 0;
 		} else {
@@ -23,7 +27,7 @@ class StringCalculator {
 
 				} else {
 
-					arrOfNumber = inputString.split(",");
+					arrOfNumber = inputString.split(",|\\\\n");
 
 					int negvallcount = 0;
 					for (String Number : arrOfNumber) {
@@ -72,5 +76,4 @@ class StringCalculator {
 		}
 
 	}
-
 }

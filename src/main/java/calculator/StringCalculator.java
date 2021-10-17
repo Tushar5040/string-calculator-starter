@@ -10,15 +10,13 @@ class StringCalculator {
 		int result = 0;
 		String delimeter = ",|\\\\n";
 		ArrayList<Integer> negativeNumber = new ArrayList<Integer>();
-		String negativeNumbers = " ";
+		
 		if (inputString.startsWith("//") || inputString.contains("//")) {
 
 			delimeter = String.valueOf(inputString.split("\\\\n")[0].replaceAll("[/]", ""));
 			inputString = String.valueOf(inputString.split("\\\\n")[1]);
 
-			System.out.println(inputString);
-			System.out.println(delimeter);
-
+			
 		}
 
 		if (inputString.endsWith("\\n")) {
@@ -42,17 +40,17 @@ class StringCalculator {
 				} else {
 
 					arrOfNumber = inputString.split(delimeter);
-					int negvallcount = 0;
+					int negativecount = 0;
 					for (String Number : arrOfNumber) {
 
 						if (Integer.parseInt(Number) > 1000) {
 							Number = String.valueOf(0);
 
-						} else if (Integer.parseInt(Number) < 0 && negvallcount >= 0) {
+						} else if (Integer.parseInt(Number) < 0 && negativecount >= 0) {
 
 							negativeNumber.add(Integer.parseInt(Number));
 
-							negvallcount++;
+							negativecount++;
 
 						}
 
@@ -60,13 +58,13 @@ class StringCalculator {
 
 					}
 
-					if (negvallcount >= 1) {
+					if (negativecount >= 1) {
 						for (Integer integer : negativeNumber) {
 							System.out.println(integer);
 						}
 						throw (new Exception(
 								"Exception occured input has -ve number.Provide positive numbers for given numbers:"
-										+ negativeNumbers));
+										+ -1));
 
 					}
 					return result;
@@ -94,5 +92,8 @@ class StringCalculator {
 			e.printStackTrace();
 		}
 
+		finally {
+			scan.close();
+		}
 	}
 }

@@ -53,18 +53,23 @@ class StringCalculatorShould {
     void string_with_multiple_number_newline_delimeter_return_number_as_int() throws Exception {
     	StringCalculator stringCalculator = new StringCalculator();
     	
-        assertEquals(3,stringCalculator.add("1\n2"));
+        assertEquals(3,stringCalculator.add("1\\n2"));
     	
     }
     @Test
     void string_with_multiple_number_different_delimeter_return_number_as_int() throws Exception{
     	StringCalculator stringCalculator = new StringCalculator();
-    	assertEquals(3,stringCalculator.add("//;\n1;2"));
+    	assertEquals(3,stringCalculator.add("//;\\n1;2"));
     }
     @Test
     void string_with_multipl_delimeter_return_number_as_int() throws Exception{
     	StringCalculator stringCalculator = new StringCalculator();
-    	assertEquals(3,stringCalculator.add("//%#\n1%#2"));
+    	assertEquals(3,stringCalculator.add("//%#\\n1%#2"));
+    }
+    @Test
+    void string_with_multipl_delimeter_longerthan_onechar_return_number_as_int() throws Exception{
+    	StringCalculator stringCalculator = new StringCalculator();
+    	assertEquals(3,stringCalculator.add("//%%##\\n1%%##2"));
     }
     
 }

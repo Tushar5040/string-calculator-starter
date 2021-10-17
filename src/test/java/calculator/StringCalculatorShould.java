@@ -28,18 +28,7 @@ class StringCalculatorShould {
         assertEquals(21, stringCalculator.add("1,2,3,4,5,6"));
     	
     }
-    @Test
-    void string_with_multiple_number_newline_delimeter_return_number_as_int() throws Exception {
-    	StringCalculator stringCalculator = new StringCalculator();
-    	
-        assertEquals(3,stringCalculator.add("1\n2"));
-    	
-    }
-    @Test
-    void string_with_multiple_number_different_delimeter_return_number_as_int() throws Exception{
-    	StringCalculator stringCalculator = new StringCalculator();
-    	assertEquals(3,stringCalculator.add("//;\n1;2"));
-    }
+   
 
     @Test
     public void negative_Input_Return_Exception()  {
@@ -54,6 +43,28 @@ class StringCalculatorShould {
     	StringCalculator stringCalculator = new StringCalculator();
     	assertEquals(1,stringCalculator.add("1,5000"));
     }
+    @Test
+    void string_with_delimeter_return_number_as_int() throws Exception{
+    	StringCalculator stringCalculator = new StringCalculator();
+    	assertEquals(3,stringCalculator.add("//%%%\\n1%%%2"));
+    }
     
+    @Test
+    void string_with_multiple_number_newline_delimeter_return_number_as_int() throws Exception {
+    	StringCalculator stringCalculator = new StringCalculator();
+    	
+        assertEquals(3,stringCalculator.add("1\n2"));
+    	
+    }
+    @Test
+    void string_with_multiple_number_different_delimeter_return_number_as_int() throws Exception{
+    	StringCalculator stringCalculator = new StringCalculator();
+    	assertEquals(3,stringCalculator.add("//;\n1;2"));
+    }
+    @Test
+    void string_with_multipl_delimeter_return_number_as_int() throws Exception{
+    	StringCalculator stringCalculator = new StringCalculator();
+    	assertEquals(3,stringCalculator.add("//%#\n1%#2"));
+    }
     
 }

@@ -9,25 +9,18 @@ class StringCalculator {
 		String[] arrOfNumber;
 		int result = 0;
 		String delimeter = ",|\\\\n";
-		ArrayList<Integer>negativeNumber = new ArrayList<Integer>();
-		String negativeNumbers=" ";
-		if (inputString.startsWith("//")|| inputString.contains("//")) {
-			
-			
-			
-			
+		ArrayList<Integer> negativeNumber = new ArrayList<Integer>();
+		String negativeNumbers = " ";
+		if (inputString.startsWith("//") || inputString.contains("//")) {
+
 			delimeter = String.valueOf(inputString.split("\\\\n")[0].replaceAll("[/]", ""));
 			inputString = String.valueOf(inputString.split("\\\\n")[1]);
-			
 
 			System.out.println(inputString);
 			System.out.println(delimeter);
 
 		}
-		
-		
-		
-		
+
 		if (inputString.endsWith("\\n")) {
 			System.out.println("Invalid Input, No character after Delimiter");
 
@@ -48,7 +41,6 @@ class StringCalculator {
 
 				} else {
 
-					
 					arrOfNumber = inputString.split(delimeter);
 					int negvallcount = 0;
 					for (String Number : arrOfNumber) {
@@ -57,9 +49,9 @@ class StringCalculator {
 							Number = String.valueOf(0);
 
 						} else if (Integer.parseInt(Number) < 0 && negvallcount >= 0) {
-							
+
 							negativeNumber.add(Integer.parseInt(Number));
-							
+
 							negvallcount++;
 
 						}
@@ -71,10 +63,11 @@ class StringCalculator {
 					if (negvallcount >= 1) {
 						for (Integer integer : negativeNumber) {
 							System.out.println(integer);
-						}				
+						}
 						throw (new Exception(
-								"Exception occured input has -ve number.Provide positive numbers for given numbers:"+negativeNumbers ));
-					
+								"Exception occured input has -ve number.Provide positive numbers for given numbers:"
+										+ negativeNumbers));
+
 					}
 					return result;
 				}
@@ -97,7 +90,7 @@ class StringCalculator {
 			int result = calculator.add(stringOfNumbers);
 			System.out.println("result " + result);
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 

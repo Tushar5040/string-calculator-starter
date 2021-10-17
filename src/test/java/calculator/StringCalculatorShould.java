@@ -48,6 +48,12 @@ class StringCalculatorShould {
     	stringCalculator.add("-1,-2"));
     	assertEquals("Exception occured input has -ve number.Provide positive numbers for given numbers:-1", exception.getMessage());
     }
+    @Test 
+    public void ignoreNumberGreaterThan1000() throws Exception
+    {
+    	StringCalculator stringCalculator = new StringCalculator();
+    	assertEquals(1,stringCalculator.add("1,5000"));
+    }
     
     
 }

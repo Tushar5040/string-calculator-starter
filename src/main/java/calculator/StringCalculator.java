@@ -7,6 +7,26 @@ class StringCalculator {
 	public int add(String inputString) throws Exception {
 		String[] arrOfNumber;
 		int result = 0;
+		String delimeter = ",|\\\\n";
+		
+
+		if (inputString.startsWith("//")|| inputString.contains("//")) {
+			
+			
+			
+			
+			delimeter = String.valueOf(inputString.split("\\\\n")[0].replaceAll("[/]", ""));
+			inputString = String.valueOf(inputString.split("\\\\n")[1]);
+			
+
+			System.out.println(inputString);
+			System.out.println(delimeter);
+
+		}
+		
+		
+		
+		
 		if (inputString.endsWith("\\n")) {
 			System.out.println("Invalid Input, No character after Delimiter");
 
@@ -27,8 +47,8 @@ class StringCalculator {
 
 				} else {
 
-					arrOfNumber = inputString.split(",|\\\\n");
-
+				
+					arrOfNumber = inputString.split(delimeter);
 					int negvallcount = 0;
 					for (String Number : arrOfNumber) {
 

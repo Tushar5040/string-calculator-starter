@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class StringCalculator {
@@ -8,8 +9,8 @@ class StringCalculator {
 		String[] arrOfNumber;
 		int result = 0;
 		String delimeter = ",|\\\\n";
-		
-
+		ArrayList<Integer>negativeNumber = new ArrayList<Integer>();
+		String negativeNumbers=" ";
 		if (inputString.startsWith("//")|| inputString.contains("//")) {
 			
 			
@@ -47,7 +48,7 @@ class StringCalculator {
 
 				} else {
 
-				
+					
 					arrOfNumber = inputString.split(delimeter);
 					int negvallcount = 0;
 					for (String Number : arrOfNumber) {
@@ -56,7 +57,9 @@ class StringCalculator {
 							Number = String.valueOf(0);
 
 						} else if (Integer.parseInt(Number) < 0 && negvallcount >= 0) {
-
+							
+							negativeNumber.add(Integer.parseInt(Number));
+							
 							negvallcount++;
 
 						}
@@ -66,9 +69,12 @@ class StringCalculator {
 					}
 
 					if (negvallcount >= 1) {
-
+						for (Integer integer : negativeNumber) {
+							System.out.println(integer);
+						}				
 						throw (new Exception(
-								"Exception string is less than 0 please input sting with positive numbers"));
+								"Exception occured input has -ve number.Provide positive numbers for given numbers:"+negativeNumbers ));
+					
 					}
 					return result;
 				}
